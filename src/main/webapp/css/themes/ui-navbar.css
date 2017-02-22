@@ -1,0 +1,97 @@
+.navbar-menu {
+  list-style: none;
+}
+
+.navbar-menu > li {
+  display: inline-block;
+  line-height: 49px;
+  height: 50px;
+  min-width: 70px;
+  // border-left: 1px solid #0288d1;
+  position: relative;
+  float: left;
+}
+
+.navbar-menu > li:hover {
+  background-color: #0288d1;
+}
+
+.navbar-menu > li > a {
+  color: #FFFFFF;
+  display: block;
+  line-height: inherit;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  padding: 0px 8px;
+  position: relative;
+  text-decoration: none;
+}
+
+.navbar-menu > li > a > img {
+  max-width: 36px !important;
+  max-height: 36px !important;
+  width:36px;
+  height:36px;
+  vertical-align: middle;
+}
+
+.navbar-menu > li > a > .fa{
+  margin-left: 2px;
+}
+
+/* navbar上面的下拉面板 */
+.navbar-menu .dropdown-menu {
+  min-width: 0px;
+  width: 150px;
+  margin: 0px;
+}
+
+.navbar-menu .dropdown-menu > li.dropdown-header {
+  border-bottom:1px solid #E5E5E5;
+  font-weight: bold;
+  text-shadow: none;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  line-height: 34px;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: none;
+}
+
+.navbar-menu .dropdown-menu > li.dropdown-content{
+  padding: 0px;
+}
+
+.navbar-menu .dropdown-menu > li.dropdown-footer {
+  border-top:1px solid #E5E5E5;
+}
+.navbar-menu .dropdown-menu > li.dropdown-footer > a {
+  text-align: center;
+}
+
+.navbar-menu .dropdown-menu > li > a {
+  display: block;
+  padding: 10px 20px;
+  clear: both;
+  line-height: 16px;
+  color: #333;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.navbar-menu .dropdown-menu {
+  border-radius: 0px;
+}
+
+.right-menu .dropdown-menu {
+  right: 0;
+  left: auto;
+}
+
+.navbar-title {
+  color: #fff;
+  line-height: 50px;
+  margin: 0;
+  padding: 0px;
+}
