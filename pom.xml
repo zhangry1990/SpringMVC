@@ -21,6 +21,7 @@
         <javassist.version>3.12.1.GA</javassist.version>
         <servlet.version>2.5</servlet.version>
         <alibaba.version>1.2.23</alibaba.version>
+        <google.version>1.0</google.version>
     </properties>
 
     <dependencies>
@@ -159,6 +160,18 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>${alibaba.version}</version>
+        </dependency>
+
+        <!-- google -->
+        <dependency>
+            <groupId>com.google.collections</groupId>
+            <artifactId>google-collections</artifactId>
+            <version>${google.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>21.0</version>
         </dependency>
     </dependencies>
     <build>
