@@ -44,7 +44,7 @@ public class SimpleHibernateDAO<T, ID extends Serializable> {
         return this.sessionFactory.getCurrentSession();
     }
 
-    public void save(T entity) {
+    public void save(Object entity) {
         AssertUtil.notNull(entity, "entity不能为空");
 
         try {
@@ -60,12 +60,12 @@ public class SimpleHibernateDAO<T, ID extends Serializable> {
 
         while (var2.hasNext()) {
             Object entity = var2.next();
-            this.save((Object) entity);
+            this.save(entity);
         }
 
     }
 
-    public void delete(T entity) {
+    public void delete(Object entity) {
         AssertUtil.notNull(entity, "entity不能为空");
 
         try {
@@ -80,7 +80,7 @@ public class SimpleHibernateDAO<T, ID extends Serializable> {
 
         while (var2.hasNext()) {
             Object item = var2.next();
-            this.delete((Object) item);
+            this.delete(item);
         }
 
     }
@@ -114,7 +114,7 @@ public class SimpleHibernateDAO<T, ID extends Serializable> {
         }
     }
 
-    public T get(ID id) {
+    public Object get(Serializable id) {
         AssertUtil.notNull(id, "id不能为空");
         return this.getSession().get(this.entityClass, id);
     }
@@ -131,11 +131,11 @@ public class SimpleHibernateDAO<T, ID extends Serializable> {
         return this.createQuery(hql.toString(), (Map) namedParameters).setCacheable(true).list();
     }
 
-    public T findUnique(CharSequence hql, Map<String, Object> namedParameters) {
+    public Object findUnique(CharSequence hql, Map<String, Object> namedParameters) {
         return this.createQuery(hql.toString(), (Map) namedParameters).uniqueResult();
     }
 
-    public T findUniqueInCache(CharSequence hql, Map<String, Object> namedParameters) {
+    public Object findUniqueInCache(CharSequence hql, Map<String, Object> namedParameters) {
         return this.createQuery(hql.toString(), (Map) namedParameters).setCacheable(true).uniqueResult();
     }
 
@@ -180,12 +180,12 @@ public class SimpleHibernateDAO<T, ID extends Serializable> {
         return c;
     }
 
-    public T findUnique(Map<String, Object> properties, Sort... sorts) {
+    public Object findUnique(Map<String, Object> properties, Sort... sorts) {
         Criteria c = this.multiPropertiesAndSortsCriteria(properties, sorts);
         return c.uniqueResult();
     }
 
-    public T findUniqueInCache(Map<String, Object> properties, Sort... sorts) {
+    public Object findUniqueInCache(Map<String, Object> properties, Sort... sorts) {
         Criteria c = this.multiPropertiesAndSortsCriteria(properties, sorts);
         return c.setCacheable(true).uniqueResult();
     }
@@ -228,7 +228,7 @@ public class SimpleHibernateDAO<T, ID extends Serializable> {
         }
     }
 
-    public T findUnique(Criterion... criterions) {
+    public Object findUnique(Criterion... criterions) {
         try {
             return this.createCriteria(criterions).uniqueResult();
         } catch (Exception var3) {
@@ -236,7 +236,7 @@ public class SimpleHibernateDAO<T, ID extends Serializable> {
         }
     }
 
-    public T findUniqueInCache(Criterion... criterions) {
+    public Object findUniqueInCache(Criterion... criterions) {
         try {
             return this.createCriteria(criterions).setCacheable(true).uniqueResult();
         } catch (Exception var3) {

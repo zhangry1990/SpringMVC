@@ -5,11 +5,11 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 
 /**
- * Created by zhangry on 2017/2/22.
+ * Created by zhangry on 2017/2/23.
  */
 @Entity
 @Table(name = "role")
-public class User extends BaseEntity {
+public class Role extends BaseEntity {
 
     private String id;
     private String name;

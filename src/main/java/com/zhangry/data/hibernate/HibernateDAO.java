@@ -6,8 +6,14 @@ import com.zhangry.common.page.QueryParameter;
 import com.zhangry.common.page.QueryParameter.Sort;
 import com.zhangry.common.util.AssertUtil;
 import com.zhangry.common.util.StringUtil;
-import com.zhangry.data.hibernate.ResultToMap;
-import com.zhangry.data.hibernate.SimpleHibernateDAO;
+import com.zhangry.ssh.dao.BaseDao;
+import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.SQLQuery;
+import org.hibernate.criterion.Order;
+import org.springframework.orm.hibernate5.SessionFactoryUtils;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -17,17 +23,11 @@ import java.sql.Statement;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import org.hibernate.Criteria;
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
-import org.hibernate.SQLQuery;
-import org.hibernate.criterion.Order;
-import org.springframework.orm.hibernate5.SessionFactoryUtils;
 
 /**
  * Created by zhangry on 2017/2/20.
  */
-public class HibernateDAO<T, ID extends Serializable> extends SimpleHibernateDAO<T, ID> implements BaseDAO<T, ID> {
+public class HibernateDAO<T, ID extends Serializable> extends SimpleHibernateDAO<T, ID> implements BaseDao<T, ID> {
     public HibernateDAO() {
     }
 

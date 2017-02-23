@@ -1,36 +1,55 @@
-/**
- * Created by zhangry on 2017/2/22.
- */
 userListManager = {
-    searchData: function () {
+    searchData: function(number, size) {
         var params = {
-            pageSize: gridTable.pageSize, //页面大小
-            pageNumber: gridTable.pageNumber //页码
         };
+        if (gridTable.pageSize) {
+            params.pageSize = gridTable.pageSize; //页面大小
+        } else {
+            params.pageSize = 1;
+        }
+        if (gridTable.pageNumber) {
+            params.pageNumber = gridTable.pageNumber; //页码
+        } else {
+            params.pageNumber = 25;
+        }
+
         $.ajax({
-            url: "/wxgl/event/gridTable",
+            url: "${ctxp}/user/gridTable",
             type: "post",
             data: params,
             dataType: "json",
-            success: function (data) {
+            success: function(data) {
                 gridTable.pageSize = data["pageSize"];
                 gridTable.pageNumber = data["pageNumber"];
                 gridTable.setDate(data["data"]);
             },
-            error: function (errMsg) {
+            error: function(errMsg) {
                 alert(errMsg.responseText);
             }
         });
+        ui.ajax.ajaxPost(
+            "${ctxp}/user/gridTable",
+            "post",
+            params,
+            function(result) {
+                gridTable.pageSize = result["pageSize"];
+                gridTable.setData(result["data"]);
+            },
+            function(error) {
+                alert(error.responseText);
+            }
+        );
     }
-};
-(function ($) {
+}
+; (function($) {
     gridTable = $("#gridTable").bootstrapTable({
         columns: [
             {field: "num", title: "序号", width: 60},
+            {field: "id", title: "ID", width: 100},
             {field: "name", title: "事件类型", width: 100},
             {field: "sex", title: "事件描述", width: 180},
-            {field: "age", title: "事件来源", width: 180},
-            {field: "address", title: "上报时间", width: 120, align: "center"}
+            {field: "age", title: "上报时间", width: 120, align: "center"},
+            {field: "address", title: "事件来源", width: 180}
         ],
         striped: true,
         pagination: true,
@@ -42,14 +61,16 @@ userListManager = {
         // sortOrder: "desc",
         // showColumns: true,
         method: "post",
-        url: "/event/gridTable",
-        queryParams: function () {
-            userListManager.searchData();
+        url: "${ctxp}/user/gridTable",
+        queryParams: function(){
+            userListManager.searchData(1, 25);
+        },
+        onPageChange: function(number, size) {
+
         }
     });
 
     $("#searchBtn").click(function () {
-        userListManager.searchData();
+        userListManager.searchData(gridTable.pageNumber, gridTable.pageSize);0
     });
-
 })(jQuery);

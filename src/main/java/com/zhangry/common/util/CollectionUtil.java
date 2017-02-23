@@ -24,7 +24,7 @@ public class CollectionUtil {
     }
 
     public static <T> T find(List<T> list, Predicate<? super T> predicate) {
-        return Iterables.find(list, predicate, (Object) null);
+        return Iterables.find(list, predicate);
     }
 
     public static Map<String, Object> queryStringToMap(String queryString) {

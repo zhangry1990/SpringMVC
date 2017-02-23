@@ -3,7 +3,7 @@ package com.zhangry.common.util;
 import com.fasterxml.jackson.databind.JavaType;
 import com.google.common.collect.Lists;
 import com.zhangry.common.page.QueryParameter;
-import com.zhangry.common.util.JsonMapper;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -53,7 +53,7 @@ public class MapperUtil {
         return jsonMapper.convertToListMap(jsonData);
     }
 
-    public static <T> T convertToMap(String jsonData, String[] parameters, boolean isReserved) {
+    public static <T> Map convertToMap(String jsonData, String[] parameters, boolean isReserved) {
         return jsonMapper.convertToMap(jsonData, parameters, isReserved);
     }
 
