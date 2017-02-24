@@ -21,6 +21,7 @@ public class UserServiceImpl extends BaseServiceImpl<User, String> implements Us
 
     @Autowired
     private UserDao userDao;
+    private String name;
 
     /**
      * 分页获取事件列表
@@ -45,5 +46,11 @@ public class UserServiceImpl extends BaseServiceImpl<User, String> implements Us
         return MapperUtil.convertToJson(page, columns);
 
     }
+
+    @Override
+    public void getUserByName(String name) {
+        userDao.getUserByName(name);
+    }
+
 
 }

@@ -6,9 +6,12 @@ import com.zhangry.data.hibernate.HibernateDAO;
 import com.zhangry.ssh.dao.UserDao;
 import com.zhangry.ssh.entity.User;
 import org.apache.commons.lang3.StringUtils;
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -45,5 +48,19 @@ public class UserDaoImpl extends HibernateDAO<User, String> implements UserDao {
             }
         }
         return this.findPageBySql(queryParameter, sqlBuilder.toString(), params);
+    }
+
+    @Override
+    public void getUserByName(String name) {
+
+        String hql = "from User";
+        Session session = getSession();
+        Query query = session.createQuery(hql);
+        List<User> userList = query.list();
+        for(User user : userList){
+            System.out.println(user.getName() + " : "  + user.getId());
+        }
+
+
     }
 }

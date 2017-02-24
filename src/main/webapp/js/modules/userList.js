@@ -1,48 +1,31 @@
-userListManager = {
-    searchData: function(number, size) {
-        var params = {
-        };
-        if (gridTable.pageSize) {
-            params.pageSize = gridTable.pageSize; //页面大小
-        } else {
-            params.pageSize = 1;
-        }
-        if (gridTable.pageNumber) {
-            params.pageNumber = gridTable.pageNumber; //页码
-        } else {
-            params.pageNumber = 25;
-        }
-
-        $.ajax({
-            url: "${ctxp}/user/gridTable",
-            type: "post",
-            data: params,
-            dataType: "json",
-            success: function(data) {
-                gridTable.pageSize = data["pageSize"];
-                gridTable.pageNumber = data["pageNumber"];
-                gridTable.setDate(data["data"]);
-            },
-            error: function(errMsg) {
-                alert(errMsg.responseText);
-            }
-        });
-        ui.ajax.ajaxPost(
-            "${ctxp}/user/gridTable",
-            "post",
-            params,
-            function(result) {
-                gridTable.pageSize = result["pageSize"];
-                gridTable.setData(result["data"]);
-            },
-            function(error) {
-                alert(error.responseText);
-            }
-        );
-    }
-}
-; (function($) {
-    gridTable = $("#gridTable").bootstrapTable({
+// userListManager = {
+//     searchData : function (number, size) {
+//         var params = {
+//             pageNumber: number ? number : 1,
+//             pageSize: size ? size : 25
+//         };
+//         alert(params);
+//         $.ajax({
+//             url: "http://localhost:8080/SpringMVC/user//gridTable",
+//             type: "post",
+//             data: JSON.stringify(params),
+//             contentType: "application/json; charset=utf-8",
+//             dataType: "json",
+//             success: function(data) {
+//                 //table赋值方式待定
+//                 gridTable.pageSize = data["pageSize"];
+//                 gridTable.pageNumber = data["pageNumber"];
+//                 gridTable.setDate(data["data"]);
+//             },
+//             error: function(errMsg) {
+//                 alert(errMsg.statusText);
+//             }
+//         });
+//     }
+// };
+/*
+(function($) {
+    $("#gridTable").bootstrapTable({
         columns: [
             {field: "num", title: "序号", width: 60},
             {field: "id", title: "ID", width: 100},
@@ -61,16 +44,16 @@ userListManager = {
         // sortOrder: "desc",
         // showColumns: true,
         method: "post",
-        url: "${ctxp}/user/gridTable",
-        queryParams: function(){
-            userListManager.searchData(1, 25);
-        },
-        onPageChange: function(number, size) {
-
-        }
-    });
-
-    $("#searchBtn").click(function () {
-        userListManager.searchData(gridTable.pageNumber, gridTable.pageSize);0
+        url: "../user/gridTable"
+        // queryParams: function(){
+        //     alert(111);
+        //     userListManager.searchData(1, 25);
+        // },
+        // onPageChange: function(number, size) {
+        //     userListManager.searchData(number, size);
+        // }
     });
 })(jQuery);
+*/
+
+

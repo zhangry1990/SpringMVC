@@ -59,12 +59,25 @@ public class UserController extends BaseController {
      * @date 20170222
      */
     @RequestMapping(value = "/gridTable", method = RequestMethod.POST)
-    public JsonView getGridData(Map<String, Object> params) {
+    /*public JsonView getGridData(Map<String, Object> params) {
 //        Map<String, Object> data = new HashedMap();
         QueryParameter query = new QueryParameter();
         query.setPageNo(Integer.parseInt(params.get("pageNumber").toString()));
         query.setPageSize(Integer.parseInt(params.get("pageSize").toString()));
         String result = userService.getUserList(query, params);
+        return new JsonView(result);
+    }*/
+    public JsonView getGridData(@RequestBody Map<String, Object> params) {
+        QueryParameter query = new QueryParameter();
+        String result = null;
+        try {
+            query.setPageNo(Integer.parseInt(params.get("pageNumber").toString()));
+            query.setPageSize(Integer.parseInt(params.get("pageSize").toString()));
+            result = userService.getUserList(query, params);
+        } catch (Exception e) {
+            System.out.println(e.fillInStackTrace());
+        }
+
         return new JsonView(result);
     }
 }

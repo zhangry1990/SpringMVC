@@ -22,4 +22,6 @@ public interface UserService extends BaseService<User, String> {
     String getUserList(QueryParameter queryParameter, Map<String, Object> params, String... columns);
 
 
+    void getUserByName(String name);
+
 }

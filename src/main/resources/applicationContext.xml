@@ -18,6 +18,8 @@
     <context:component-scan base-package="com.zhangry.ssh"/>
 
     <!-- 引用外部配置文件 -->
+    <context:property-placeholder location="classpath:/jdbc.properties"/>
+
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="${jdbc.driverClass}"/>
         <property name="jdbcUrl" value="${jdbc.url}"/>
@@ -33,6 +35,7 @@
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.autoReconnect">true</prop>
             </props>
         </property>
         <property name="packagesToScan">
