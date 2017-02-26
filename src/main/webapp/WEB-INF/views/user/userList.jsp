@@ -80,7 +80,6 @@
                     pageNumber: number ? number : 1,
                     pageSize: size ? size : 25
                 };
-                alert(JSON.stringify(params));
                 $.ajax({
                     url: "http://localhost:8080/SpringMVC/user//gridTable",
                     type: "post",
@@ -88,14 +87,12 @@
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     success: function (data) {
-                        alert(JSON.stringify(data));
                         //table赋值方式待定
                         gridTable.pageSize = data["pageSize"];
                         gridTable.pageNumber = data["pageNumber"];
                        // gridTable.setDate(data["data"]);
                     },
                     error: function (errMsg) {
-                        alert(6666);
                         alert(errMsg.statusText);
                     }
                 });

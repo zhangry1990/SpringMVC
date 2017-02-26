@@ -33,7 +33,7 @@ public class UserServiceImpl extends BaseServiceImpl<User, String> implements Us
      * @return
      */
     @Override
-    public String getUserList(QueryParameter queryParameter, Map<String, Object> params, String... columns) {
+    public String getUserList(QueryParameter queryParameter, Map<String, Object> params) {
         Page<User> page = null;
         try {
             page = userDao.getUserList(queryParameter, params);
@@ -43,7 +43,7 @@ public class UserServiceImpl extends BaseServiceImpl<User, String> implements Us
             throw new ServiceException("查询事件列表失败！", e);
         }
         //将结果集转换为带分页的JSON
-        return MapperUtil.convertToJson(page, columns);
+        return MapperUtil.convertToJson(page);
 
     }
 

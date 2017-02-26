@@ -19,7 +19,7 @@ public interface UserService extends BaseService<User, String> {
      * @param params 查询条件  {EeventType:事件类型; eventStatus:实际状态; reportTime: 上报时间 }
      * @return
      */
-    String getUserList(QueryParameter queryParameter, Map<String, Object> params, String... columns);
+    String getUserList(QueryParameter queryParameter, Map<String, Object> params);
 
 
     void getUserByName(String name);
