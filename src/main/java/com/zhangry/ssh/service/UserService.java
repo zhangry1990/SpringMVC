@@ -24,4 +24,6 @@ public interface UserService extends BaseService<User, String> {
 
     void getUserByName(String name);
 
+    List<User> getUserList();
+
 }

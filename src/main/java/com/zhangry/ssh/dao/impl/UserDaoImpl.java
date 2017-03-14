@@ -63,4 +63,12 @@ public class UserDaoImpl extends HibernateDAO<User, String> implements UserDao {
 
 
     }
+
+    @Override
+    public List<User> getUserList() {
+
+        Session session = getSession();
+        Query query = session.createQuery(" from User ");
+        return query.list();
+    }
 }

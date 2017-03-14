@@ -80,4 +80,12 @@ public class UserController extends BaseController {
 
         return new JsonView(result);
     }
+
+    @RequestMapping(value = "/getUserList", method = RequestMethod.POST)
+    public void getUserList(@RequestBody User user) {
+        System.out.println(user.getName());
+        System.out.println(user.getAge());
+        List<User> userList = userService.getUserList();
+        System.out.println(userList.size());
+    }
 }

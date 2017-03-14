@@ -52,5 +52,10 @@ public class UserServiceImpl extends BaseServiceImpl<User, String> implements Us
         userDao.getUserByName(name);
     }
 
+    @Override
+    public List<User> getUserList() {
+        return userDao.getUserList();
+    }
+
 
 }
