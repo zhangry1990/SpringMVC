@@ -9,8 +9,6 @@
 package com.zhangry.ssh.dao;
 
 
-import com.zhangry.common.page.Page;
-import com.zhangry.common.page.QueryParameter;
 import com.zhangry.ssh.entity.Role;
 
 import java.util.List;
@@ -32,7 +30,6 @@ public interface RoleDao extends BaseDao<Role, String> {
      * @param columns
      * @return
      */
-    Page<Role> getRolesPage(QueryParameter queryParameter, Map<String, Object> condition, String... columns);
 
     /**
      * 判断角色名称是否存在

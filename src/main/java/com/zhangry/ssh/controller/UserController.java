@@ -1,10 +1,7 @@
 package com.zhangry.ssh.controller;
 
-import com.zhangry.common.page.QueryParameter;
-import com.zhangry.json.JsonView;
 import com.zhangry.ssh.entity.User;
 import com.zhangry.ssh.service.UserService;
-import org.apache.commons.collections.map.HashedMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by zhangry on 2017/2/22.
@@ -53,12 +47,12 @@ public class UserController extends BaseController {
 
     /**
      * 分页获取事件列表
-     * @param params Map<String, Object> 含分页信息的参数集
+     * @param
      * @return
      * @author lifang
      * @date 20170222
      */
-    @RequestMapping(value = "/gridTable", method = RequestMethod.POST)
+    //@RequestMapping(value = "/gridTable", method = RequestMethod.POST)
     /*public JsonView getGridData(Map<String, Object> params) {
 //        Map<String, Object> data = new HashedMap();
         QueryParameter query = new QueryParameter();
@@ -67,7 +61,7 @@ public class UserController extends BaseController {
         String result = userService.getUserList(query, params);
         return new JsonView(result);
     }*/
-    public JsonView getGridData(@RequestBody Map<String, Object> params) {
+   /* public JsonView getGridData(@RequestBody Map<String, Object> params) {
         QueryParameter query = new QueryParameter();
         String result = null;
         try {
@@ -80,7 +74,7 @@ public class UserController extends BaseController {
 
         return new JsonView(result);
     }
-
+*/
     @RequestMapping(value = "/getUserList", method = RequestMethod.POST)
     public void getUserList(@RequestBody User user) {
         System.out.println(user.getName());

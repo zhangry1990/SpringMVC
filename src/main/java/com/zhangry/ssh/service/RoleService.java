@@ -8,8 +8,6 @@
  */
 package com.zhangry.ssh.service;
 
-import com.alibaba.fastjson.JSONObject;
-import com.zhangry.common.page.QueryParameter;
 import com.zhangry.ssh.entity.Role;
 
 import java.util.Map;
@@ -21,14 +19,6 @@ import java.util.Map;
  */
 public interface RoleService extends BaseService<Role, String> {
 
-    /**
-     * 分页查询角色列表
-     * @param queryParameter
-     * @param condition
-     * @param columns
-     * @return
-     */
-    String getRoleSPageByCondition(QueryParameter queryParameter, Map<String, Object> condition, String... columns);
 
 
     /**

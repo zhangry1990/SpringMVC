@@ -51,7 +51,7 @@ public class RoleController extends BaseController {
      */
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     public void getRoleList(@RequestBody Map<String, String> params) {
-        Map<String, Object> condition = new HashMap<>();
+        Map<String, Object> condition = new HashMap<String, Object>();
         //角色名称
         condition.put("name", params.get("name"));
         //启用状态（0-禁用；1-启用）
